@@ -60,7 +60,7 @@
     .close-button {
         margin-top: 20px;
         padding: 10px 15px;
-        font-size: 16px;
+        font-size: 18px;
         cursor: pointer;
         background-color: var(--apple-color);
         color: var(--text-color);

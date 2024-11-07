@@ -1,47 +1,113 @@
-# Svelte + Vite
+# 🍎 Apple Catching Game
 
-This template should help get you started developing with Svelte in Vite.
+**Apple Catching** – это браузерная игра, написанная на Svelte, где вы управляете ведром, пытаясь поймать падающие яблоки. Цель игры – набрать как можно больше очков, ловя яблоки только верхней частью ведра. Пока функционал ограничен и играть довольно скучно, но это мой первый фронтенд проект и я планирую его расширять.
 
-## Recommended IDE Setup
+## 🎮 Как играть
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- Управляйте ведром с помощью стрелок на клавиатуре или кнопок на экране.
+- Поймайте яблоко, чтобы заработать очко.
+- Если яблоко упадет мимо ведра, игра завершится, и появится модальное окно с вашим результатом.
+- В меню настроек можно изменить скорость падения яблока и ведра, а также выбрать стиль яблока и ведра и поменять язык интерфейса.
 
-## Need an official Svelte framework?
+## 🔧 Функциональность
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- **Темная тема**: переключается автоматически в зависимости от предпочтений системы пользователя, но также может быть изменена вручную.
+- **Смена языка**: игра поддерживает два языка - английский и русский. Переключение можно произвести в настройках.
+- **Режимы яблока и ведра, скорости**: выберите стиль яблока и ведра или, который вам больше нравится.
+- **Модальные окна**: отображаются при проигрыше и для отображения информации или настроек игры.
 
-## Technical considerations
+## 📂 Структура проекта
 
-**Why use this over SvelteKit?**
+- **`App.svelte`**: основной компонент игры, который включает в себя логику передвижения, взаимодействия и отображения объектов.
+- **`Modal.svelte`**: компонент модальных окон для отображения настроек, информации и уведомлений об окончании игры.
+- **`svelte-icons`**: иконки для отображения ведра, яблока и других элементов интерфейса.
+  
+## 🛠 Установка и запуск
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+1. Клонируйте репозиторий:
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+   ```bash
+   git clone https://github.com/your-username/catch-the-apple.git
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+Извините за неудобства! Я отформатирую README в одном блоке:
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+```markdown
+# 🍎 Catch the Apple Game
 
-**Why include `.vscode/extensions.json`?**
+**Catch the Apple Game** – это браузерная игра, написанная на Svelte, где вы управляете ведром, пытаясь поймать падающие яблоки. Цель игры – набрать как можно больше очков, ловя яблоки только верхней частью ведра.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+## 🎮 Как играть
 
-**Why enable `checkJs` in the JS template?**
+- Управляйте ведром с помощью стрелок на клавиатуре или кнопок на экране.
+- Поймайте яблоко, чтобы заработать очко.
+- Если яблоко упадет мимо ведра, игра завершится, и появится модальное окно с вашим результатом.
+- В меню настроек можно изменить скорость падения яблока и ведра, а также выбрать стиль яблока и ведра.
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+## 🔧 Функциональность
 
-**Why is HMR not preserving my local component state?**
+- **Темная тема**: переключается автоматически в зависимости от предпочтений системы пользователя, но также может быть изменена вручную.
+- **Смена языка**: игра поддерживает два языка - английский и русский. Переключение можно произвести в настройках.
+- **Режимы яблока и ведра**: выберите стиль яблока и ведра, который вам больше нравится.
+- **Модальные окна**: отображаются при проигрыше и для отображения информации или настроек игры.
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+## 📂 Структура проекта
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+- **`App.svelte`**: основной компонент игры, который включает в себя логику передвижения, взаимодействия и отображения объектов.
+- **`Modal.svelte`**: компонент модальных окон для отображения настроек, информации и уведомлений об окончании игры.
+- **`svelte-icons`**: иконки для отображения ведра, яблока и других элементов интерфейса.
+  
+## 🛠 Установка и запуск
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+1. Клонируйте репозиторий:
+
+   ```bash
+   git clone https://github.com/your-username/catch-the-apple.git
+   ```
+
+2. Перейдите в директорию проекта:
+
+   ```bash
+   cd Apple-Catching
+   ```
+
+3. Установите зависимости:
+
+   ```bash
+   npm install
+   ```
+
+4. Запустите проект:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Откройте http://localhost:xxxx в вашем браузере.
+
+## 🚀 Технологии
+
+- **Svelte** – платформа для создания компонентов и интерфейса игры, в самом фреймворке использовался обычный JS, HTML, CSS.
+
+
+## 🌟 Скриншоты
+
+### Основной экран игры
+![Main Screen](screenshot_main.png)
+
+### Настройки
+![Settings Screen](screenshot_settings.png)
+
+### Информация
+![Information Screen](screenshot_info.png)
+
+## 🙌 Вклад
+
+Если у вас есть предложения по улучшению игры или вы нашли баг, пожалуйста, создайте новый **Issue** или отправьте **Pull Request**. Будем рады любому вкладу!
+
+
+## 📞 Контакты
+
+- **Telegram**: [@aertydesign](https://t.me/aertydesign)
+- **Discord**: [LINK](https://discordapp.com/users/1156598346803331285/)
+
