@@ -29,6 +29,7 @@
 <style>
     .modal-backdrop {
         position: fixed;
+
         color: var(--text-color);
         top: 0;
         left: 0;
@@ -46,6 +47,7 @@
         display: flex;
         flex-direction: column;
         padding: 20px;
+        margin: 15px;
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(255, 255, 255, 0.7);
         transform: scale(0.1);

@@ -9,6 +9,9 @@ import Modal from './Modal.svelte'
 import GiShinyApple from 'svelte-icons/gi/GiShinyApple.svelte'
 import GiEmptyMetalBucket from 'svelte-icons/gi/GiEmptyMetalBucket.svelte'
 import FaInfoCircle from 'svelte-icons/fa/FaInfoCircle.svelte'
+import FaTelegram from 'svelte-icons/fa/FaTelegram.svelte'
+import FaDiscord from 'svelte-icons/fa/FaDiscord.svelte'
+import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
 
 //Импорт OnMount()
 import { onMount } from 'svelte';
@@ -254,8 +257,11 @@ function moveBucket(direction) {
 
     <Modal isOpen={showInfoModal} buttonText={language === 'en' ? 'Close' : 'Закрыть'} on:close={()=>showInfoModal=closeModal()}>
         <h2>{language === 'en' ? 'Information' : 'Информация'}</h2>
-        <p><a href="https://t.me/aertydesign">{language === 'en' ? 'Telegram' : 'Телеграм'}</a></p>
-        <p><a href="https://discordapp.com/users/1156598346803331285/">{language === 'en' ? 'Discord' : 'Дискорд'}</a></p>
+        <div class="row-info">
+            <p  style="width: 40px"><a class="telegram" href="https://t.me/aertydesign"><FaTelegram/></a></p>
+            <p  style="width: 40px"><a class="discord" href="https://discordapp.com/users/1156598346803331285/"><FaDiscord/></a></p>
+            <p  style="width: 40px"><a class="github" href="https://github.com/oksigenn/"><FaGithub/></a></p></div>
+        <p><a href="https://github.com/oksigenn/apple-catching-on-svelte">{language==='en'?"This project on Github":"Этот проект на гитхабе"}</a></p>
     </Modal>
 
     <Modal isOpen={showSettingsModal} buttonText={language === 'en' ? 'Close' : 'Закрыть'} on:close={()=>showSettingsModal=closeModal()}>
@@ -300,6 +306,12 @@ function moveBucket(direction) {
 
 <style>
 
+    .row-info{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
     .language-toggle {
         font-size: 16px;
         cursor: pointer;
@@ -340,7 +352,15 @@ function moveBucket(direction) {
     a:hover{
         color: green;
     }
-
+    .telegram:hover{
+        color: #28a0dc;
+    }
+    .discord:hover{
+        color: #5661f5;
+    }
+    .github:hover{
+        color: #238636;
+    }
     .row-in{
         display: flex;
         gap: 10px;
@@ -439,13 +459,35 @@ function moveBucket(direction) {
         border: 1px solid var(--text-color);
         border-radius: 15px;
         font-family: inherit;
-        transition: .2s;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         outline: none;
+    }
 
+    button:active {
+        background-color: rgba(0, 128, 0, 0.1); /* Лёгкий зелёный оттенок при нажатии */
+        color: green; /* Изменение цвета текста при нажатии */
+        border-color: green; /* Изменение цвета границы */
+    }
+
+    /* Для устройства с сенсорным экраном отключаем синий цвет */
+    button:focus {
+        outline: none;
+        -webkit-tap-highlight-color: transparent; /* Убирает синий цвет при нажатии на мобильных устройствах */
     }
 
     button:hover {
-        color: green
+        color: green;
+    }
+
+    /* Дополнительный стиль для мобильных устройств с эффектом заполнения */
+    @media (hover: none) {
+        button {
+            transition: background-color 0.4s ease-in-out, color 0.4s, border-color 0.4s;
+        }
+
+        button:active {
+            background-color: rgba(0, 128, 0, 0.3); /* Более заметный эффект заливки на мобильных устройствах */
+        }
     }
 
     .theme-toggle {
